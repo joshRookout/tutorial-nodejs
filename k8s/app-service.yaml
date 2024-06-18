@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tutorial-nodejs-demo-app-service
+spec:
+  ports:
+    - port: 80
+      targetPort: 4000
+      protocol: TCP
+  selector:
+    app: tutorial-nodejs-demo-app-deployment
+  type: LoadBalancer

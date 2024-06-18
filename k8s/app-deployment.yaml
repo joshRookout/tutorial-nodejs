@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tutorial-nodejs-demo-app-deployment
+  labels:
+    app: tutorial-nodejs-demo-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tutorial-nodejs-demo-app-deployment
+  template:
+    metadata:
+      labels:
+        app: tutorial-nodejs-demo-app-deployment
+    spec:
+      containers:
+        - name: tutorial-nodejs
+          image: us.gcr.io/rookoutdev/livedebugger@sha256:975b71658f0258e02fd437cfea376dcd55ae1c6f7b649b146f8b19b7b55edf6f
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4000
